@@ -1,11 +1,9 @@
 name: Generate Article Index
-
 on:
   push:
     branches:
       - main
   workflow_dispatch:
-
 jobs:
   generate-index:
     runs-on: ubuntu-latest
@@ -13,21 +11,25 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GH_PAT }}  # Authenticate checkout with PAT
-
+          token: ${{ secrets.GH_PAT }}
       - name: Generate index.json
         run: |
-          echo "Generating index.json..."
-          files=$(find . -maxdepth 1 -type f -name "*.md" | sed 's|./||' | jq -R . | jq -s .)
-          echo $files | jq . > index.json
+          echo "Generating index.json with dates..."
+          # Get files with their creation dates
+          files_with_dates=$(for file in *.md; do
+            if [ -f "$file" ]; then
+              created_date=$(git log --follow --format="%ai" -- "$file" | tail -1)
+              echo "{\"filename\":\"$file\",\"created\":\"$created_date\"}"
+            fi
+          done | jq -s '.')
+          echo $files_with_dates > index.json
           cat index.json
-
       - name: Commit and Push index.json
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_PAT }}  # Use PAT for auth
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "actions@github.com"
           git add index.json
           git commit -m "Auto-update index.json" || exit 0
-          git push origin HEAD:main  # Now uses the authenticated origin
+          git push origin HEAD:main
