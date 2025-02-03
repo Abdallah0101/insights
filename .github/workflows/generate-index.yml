@@ -22,9 +22,6 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Install Dependencies
-        run: npm install
-
       - name: Generate index.json
         run: |
           node generate-index.js
