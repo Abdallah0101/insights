@@ -21,9 +21,11 @@ jobs:
           cat index.json  # Print the output for debugging
 
       - name: Commit and Push index.json
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "actions@github.com"
           git add index.json
           git commit -m "Auto-update index.json" || exit 0
-          git push
+          git push https://x-access-token:${GITHUB_TOKEN}@github.com/Abdallah0101/insights.git main
