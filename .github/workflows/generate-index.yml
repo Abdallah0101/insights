@@ -3,8 +3,8 @@ name: Generate Article Index
 on:
   push:
     branches:
-      - main  # Runs when pushing to the main branch
-  workflow_dispatch:  # Allows manual trigger from GitHub Actions
+      - main  
+  workflow_dispatch:  
 
 jobs:
   generate-index:
@@ -22,10 +22,12 @@ jobs:
 
       - name: Commit and Push index.json
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}  
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "actions@github.com"
           git add index.json
           git commit -m "Auto-update index.json" || exit 0
-          git push https://x-access-token:${GITHUB_TOKEN}@github.com/Abdallah0101/insights.git main
+          
+          # Push using the PAT
+          git push https://github.com/Abdallah0101/insights.git HEAD:main
