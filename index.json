@@ -1,7 +1,1 @@
-[
-  "test2.md",
-  "test6.md",
-  "test4.md",
-  "test.md",
-  "test3.md"
-]
+[ { "filename": "test.md", "created": "2025-02-03 12:18:12 -0300" }, { "filename": "test2.md", "created": "2025-02-03 12:18:12 -0300" }, { "filename": "test3.md", "created": "2025-02-03 12:18:12 -0300" }, { "filename": "test4.md", "created": "2025-02-03 12:18:12 -0300" }, { "filename": "test6.md", "created": "2025-02-03 12:18:12 -0300" } ]
