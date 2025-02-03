@@ -29,5 +29,5 @@ jobs:
           git add index.json
           git commit -m "Auto-update index.json" || exit 0
           
-          # Push using the PAT
-          git push https://github.com/Abdallah0101/insights.git HEAD:main
+          # Push using the Personal Access Token (PAT) for authentication
+          git push https://x-access-token:${{ secrets.GH_PAT }}@github.com/Abdallah0101/insights.git HEAD:main
