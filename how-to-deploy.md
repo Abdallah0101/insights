@@ -122,7 +122,3 @@ Here are some examples of how chunked streaming is used in real life:
 1. Watch a video on YouTube or Netflix and observe what happens when you pause and resume. Can you notice the buffer filling up?
 2. Research how live streaming differs from on-demand streaming in terms of chunk delivery.
 3. Try streaming a video on a slower internet connection and see how the quality changes. Write down your observations.
-
----
-
-Congratulations! You now know how video streaming works and why data arrives in chunks. Next time you’re watching your favorite show, you’ll have a deeper appreciation for the technology behind it. Happy streaming! 🎥✨
