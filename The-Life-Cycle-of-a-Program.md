@@ -16,7 +16,7 @@ When you write a program in a language like C++, your code goes through several 
 
 ---
 
-# 2. What Happens at Compile Time
+## What Happens at Compile Time
 
 ### Definition:
 - **Compile Time** is the period when your source code is being checked and converted into a lower-level language by the compiler.
@@ -52,7 +52,7 @@ When you write a program in a language like C++, your code goes through several 
 
 ---
 
-# 3. What Happens at Runtime
+## What Happens at Runtime
 
 ### Definition:
 - **Runtime** is the period when your compiled program is executed. This is when your code “comes to life” and does its job.
@@ -92,7 +92,7 @@ When you write a program in a language like C++, your code goes through several 
 
 ---
 
-# 4. Additional Related Concepts
+## Additional Related Concepts
 
 ### a. Static vs. Dynamic Binding
 
@@ -154,7 +154,7 @@ When you write a program in a language like C++, your code goes through several 
 
 ---
 
-# 5. Recap and Why It Matters
+## Recap and Why It Matters
 
 - **Compile Time** is all about preparing your code to run:
   - The compiler checks for errors.
